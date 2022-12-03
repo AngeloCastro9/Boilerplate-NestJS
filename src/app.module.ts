@@ -7,15 +7,16 @@ import { AdminController } from './admin/admin.controller';
 import { PrismaService } from './database/prisma.service';
 import { ConfigModule } from '@nestjs/config';
 import { AuthController } from './auth/auth.controller';
+import { RedisModule } from './connections/redis/redis.module';
 
 @Module({
   imports: [
     AdminModule,
     AuthModule,
     ConfigModule.forRoot({ isGlobal: true }),
+    RedisModule,
   ],
   controllers: [AppController, AdminController, AuthController],
   providers: [AppService, PrismaService],
 })
-
-export class AppModule { }
+export class AppModule {}
