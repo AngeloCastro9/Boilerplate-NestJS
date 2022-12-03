@@ -8,6 +8,7 @@ import { PrismaService } from './database/prisma.service';
 import { ConfigModule } from '@nestjs/config';
 import { AuthController } from './auth/auth.controller';
 import { RedisModule } from './connections/redis/redis.module';
+import { WebSocketModule } from './connections/websocket/websocket.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { RedisModule } from './connections/redis/redis.module';
     AuthModule,
     ConfigModule.forRoot({ isGlobal: true }),
     RedisModule,
+    WebSocketModule,
   ],
   controllers: [AppController, AdminController, AuthController],
   providers: [AppService, PrismaService],
